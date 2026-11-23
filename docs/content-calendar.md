@@ -4,7 +4,7 @@ The scheduled writer publishes the first `todo` row each run (two runs a day). U
 
 | # | Status | Market | Format | Working title | Slug | Primary keyword | Angle |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | todo | Philadelphia | Pillar guide | Coffee Cart Catering in Philadelphia (2026 Guide) | coffee-cart-catering-philadelphia | coffee cart catering Philadelphia | Everything a Philly event manager needs: neighborhoods, venues, Center City load-ins, pricing factors, timelines, Phillies and RYZE examples |
+| 1 | published 2026-11-22 | Philadelphia | Pillar guide | Coffee Cart Catering in Philadelphia (2026 Guide) | coffee-cart-catering-philadelphia | coffee cart catering Philadelphia | Everything a Philly event manager needs: neighborhoods, venues, Center City load-ins, pricing factors, timelines, Phillies and RYZE examples |
 | 2 | todo | Washington DC | Pillar guide | Coffee Cart Catering in Washington DC (2026 Guide) | coffee-cart-catering-washington-dc | coffee cart catering Washington DC | DC CBD, K Street, Georgetown, Navy Yard, secure buildings, 6:30am setups, Arc'teryx and Madewell Georgetown |
 | 3 | todo | New Jersey | Pillar guide | Coffee Cart Catering in New Jersey (2026 Guide) | coffee-cart-catering-new-jersey | coffee cart catering New Jersey | North, Central and South Jersey planned separately; pharma corridors, Jersey City finance, shore season |
 | 4 | todo | Philadelphia | Best-of list | The 5 Best Coffee Carts in Philadelphia (2026) | best-coffee-carts-in-philadelphia | best coffee carts in Philadelphia | Atelier #1 with disclosure; research 4 real Philly competitors |
