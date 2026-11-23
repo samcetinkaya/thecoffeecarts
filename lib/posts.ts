@@ -17,7 +17,18 @@ export type PostData = {
   ogTitle?: string;
   ogDescription?: string;
   keywords: string[];
+  faq: { question: string; answer: string }[];
 };
+
+function parseFaq(value: unknown): { question: string; answer: string }[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .filter(
+      (item): item is { question: unknown; answer: unknown } =>
+        typeof item === 'object' && item !== null && 'question' in item && 'answer' in item
+    )
+    .map((item) => ({ question: String(item.question), answer: String(item.answer) }));
+}
 
 function formatPostDate(date: unknown): string {
   if (date instanceof Date && !Number.isNaN(date.getTime())) {
@@ -67,6 +78,7 @@ export async function getAllPosts(options?: { includeFuture?: boolean }): Promis
           ogTitle: typeof data.og_title === 'string' ? data.og_title : undefined,
           ogDescription: typeof data.og_description === 'string' ? data.og_description : undefined,
           keywords: Array.isArray(data.keywords) ? data.keywords.map(String) : [],
+          faq: parseFaq(data.faq),
         } satisfies PostData;
       })
   );

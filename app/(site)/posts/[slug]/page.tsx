@@ -101,7 +101,7 @@ export default async function PostPage({
     dateModified: post.date,
     url: canonicalUrl(`/posts/${post.slug}`),
     mainEntityOfPage: canonicalUrl(`/posts/${post.slug}`),
-    keywords: post.tags.join(', '),
+    keywords: (post.keywords.length ? post.keywords : post.tags).join(', '),
     publisher: {
       '@type': 'Organization',
       name: SITE_NAME,
@@ -109,12 +109,31 @@ export default async function PostPage({
     },
   };
 
+  const faqSchema =
+    post.faq.length > 0
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: post.faq.map((item) => ({
+            '@type': 'Question',
+            name: item.question,
+            acceptedAnswer: { '@type': 'Answer', text: item.answer },
+          })),
+        }
+      : null;
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       <ReadingProgress />
       <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8 sm:py-20">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,42rem)_16rem] lg:justify-between">
